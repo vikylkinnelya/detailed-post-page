@@ -4,7 +4,7 @@
 
 ``` bash
 # clone repository 
-$ gh repo clone vikylkinnelya/whys_project
+$ git clone https://github.com/vikylkinnelya/whys_project.git
 ``` 
 
 ## Build Setup
