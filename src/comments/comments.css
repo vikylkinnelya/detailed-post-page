@@ -1,0 +1,14 @@
+.comments-list {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.comments-list>ul>li {
+    justify-self: center;
+    margin: auto;
+}
+
+.comments-list>ul {
+    background: none;
+}

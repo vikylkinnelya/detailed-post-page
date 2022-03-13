@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <div className='post-page'>
         <Post />
-        <Comments />
       </div>
     </div>
   );
