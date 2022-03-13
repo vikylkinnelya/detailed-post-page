@@ -1,15 +1,22 @@
+# whys project
 
-### `npm start`
+> My React.js project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+``` bash
+# clone repository 
+$ gh repo clone vikylkinnelya/whys_project
+``` 
 
-### `npm run build`
+## Build Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+``` bash
+# install dependencies
+$ npm run install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# serve with hot reload at localhost:3000
+$ npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# build for production and launch server
+$ npm run build
+
+```
