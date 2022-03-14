@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { List, ListItem, Avatar, ListItemAvatar, ListItemText, Divider, Typography } from "@mui/material";
+import { List, ListItem, Avatar, ListItemAvatar, ListItemText, Divider, Typography, Tooltip } from "@mui/material";
 import { LoadingButton } from '@mui/lab';
-import { stringAvatar, relativeTime } from '../functions';
+import { stringAvatar, relativeTime, datePrettier } from '../functions';
 import './comments.css'
 
 const Comments = () => {
@@ -12,7 +12,9 @@ const Comments = () => {
     const fetchComments = () => {
         const comm = document.__comments
         const moreComm = document.__moreComments
-        return [...comm, ...moreComm]
+        return [...comm, ...moreComm].sort((a, b) => {
+            return new Date(b.date) - new Date(a.date)
+        })
     }
 
     function getComments() {
@@ -44,7 +46,7 @@ const Comments = () => {
                         <LoadingButton loading={loading} onClick={() => imitateFetch(getMore)}>
                             More comments
                         </LoadingButton> :
-                        <Typography variant="body1" sx={{fontSize: '15px'}}>
+                        <Typography variant="body1" sx={{ fontSize: '15px' }}>
                             Comments
                         </Typography>
                     }
@@ -61,14 +63,17 @@ const Comments = () => {
                             primary={comment.author}
                             secondary={
                                 <>
-                                    {relativeTime(comment.date)} <br />
+                                    <Tooltip title={`${datePrettier(comment.date)}`} placement="bottom-start">
+                                        <div>{relativeTime(comment.date)}</div>
+                                    </Tooltip>
                                     {comment.text}
                                 </>
                             }
                         >
                         </ListItemText>
                     </ListItem>
-                ))}
+                ))
+                }
             </List >
         </div >
     )

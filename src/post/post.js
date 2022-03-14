@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, Card, CardHeader, CardContent, Typography, Paper, Skeleton } from '@mui/material';
+import { Avatar, Card, CardHeader, CardContent, Typography, Paper, Skeleton, Tooltip } from '@mui/material';
 import Comments from '../comments'
-import { stringAvatar, relativeTime } from '../functions';
+import { stringAvatar, relativeTime, datePrettier } from '../functions';
 import './post.css'
 
 const Post = () => {
@@ -37,7 +37,10 @@ const Post = () => {
                             <Skeleton animation="wave"
                                 height={20}
                                 width="30%" /> :
-                            relativeTime(post.date)}
+                            <Tooltip title={`${datePrettier(post.date)}`} placement="bottom-start">
+                                <div>{relativeTime(post.date)}</div>
+                            </Tooltip>
+                        }
                     >
                     </CardHeader>
                     <CardContent sx={{ width: 500 }}>
